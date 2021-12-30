@@ -50,8 +50,8 @@ func main() {
 	}
 	m.s = s
 
-	// Update status every minute.
-	go m.updater(c.MCAddress, time.Minute)
+	// Update status every 5 minutes.
+	go m.updater(c.MCAddress, 5*time.Minute)
 
 	t, err := template.ParseFiles(c.Template)
 	if err != nil {
