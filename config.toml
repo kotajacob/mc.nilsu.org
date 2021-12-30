@@ -1,0 +1,3 @@
+Address = "0.0.0.0:8080"
+Template = "template.html"
+MCAddress = "nilsu.org:25565"

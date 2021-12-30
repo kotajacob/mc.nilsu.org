@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[ nilsu ~/mc ]</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+  <style>
+  body {
+    font: 100% Helvetica, sans-serif;
+    line-height: 1.8;
+    color: #eee;
+    background-color: #000;
+    margin: 120px 20px;
+  }
+  @media (prefers-color-scheme: light) {
+    body {
+      color: #222;
+      background-color: #fff;
+    }
+  }
+
+  .content {
+    margin: auto;
+    max-width: 600px;
+  }
+
+  .site-title {
+    font-size: 3em;
+    text-align: center;
+  }
+  .site-title a {
+    text-decoration-color: #8b7a95;
+  }
+  @media (prefers-color-scheme: light) {
+    .site-title a {
+      text-decoration-color: #76657f;
+    }
+  }
+
+  .details {
+    font-family: monospace;
+    font-size: 1.6em;
+    margin: auto;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  .color {
+    color: #8b7a95;
+  }
+  @media (prefers-color-scheme: light) {
+    .color {
+      color: #76657f;
+    }
+  }
+
+  a {
+    color: #eee;
+  }
+  a:hover, a:active, a:focus {
+    color: #8b7a95;
+  }
+  @media (prefers-color-scheme: light) {
+    a {
+      color: #222;
+    }
+    a:hover, a:active, a:focus {
+      color: #76657f;
+    }
+  }
+  </style>
+</head>
+
+<body>
+  <div class=content>
+    <h1 class=site-title><a href= />Nilsu Minecraft Server</a></h1>
+    <div class=details>
+      <div><span class=color>Version:</span> {{.Version.Name}}</div>
+      <div><span class=color>Players:</span>&nbsp&nbsp {{.Players.Online}}/{{.Players.Max}}</span></div>
+    </div>
+  </div>
+</body>
+
+</html>
