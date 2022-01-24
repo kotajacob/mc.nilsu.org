@@ -1,0 +1,24 @@
+AppleSkin;mc1.18-2.2.0
+Axes Are Weapons;1.5.1
+Better Chainmail;0.1.0
+Better Nether Map;1.6.0-1.18
+BFAPI;1.2.1
+Carpet Extra;1.4.56
+Carpet Mod;1.4.57
+Carpet TIS Addition;1.28.3
+Carpet-AutoCraftingTable;1.4.56
+Cloth Config v6;6.1.48
+Fabric API;0.46.1+1.18
+FabricSit;1.7.1
+FallingTree;2.16.1
+Firework Frenzy;1.7
+I Am Very Smart;2.1.0
+Inventory Sorter;1.8.4-1.18
+LazyDFU;0.1.2
+Lithium;0.7.7
+Servux;0.1.0
+SnowballKnockback;1.1-1.18.1
+Snowy Trees;1.0.0
+Starlight;1.0.0+fabric.d0a3220
+Syncmatica;0.2.6
+Textile Backup;2.3.0-1.18
