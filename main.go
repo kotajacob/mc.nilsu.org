@@ -61,9 +61,12 @@ func main() {
 
 	// Parse mod and carpet lists.
 	m.display.Mods, err = parseKeyFile(c.ModList)
+	if err != nil {
+		log.Fatalf("failed parsing mod list: %v\n", err)
+	}
 	m.display.Carpets, err = parseKeyFile(c.CarpetList)
 	if err != nil {
-		log.Fatalf("failed parsing list: %v\n", err)
+		log.Fatalf("failed parsing carpet list: %v\n", err)
 	}
 
 	// Parse template and store in model.
