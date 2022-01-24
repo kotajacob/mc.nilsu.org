@@ -9,13 +9,19 @@ import (
 )
 
 type model struct {
-	t *template.Template
-	s *status
+	tmpl    *template.Template
+	display display
+}
+
+type display struct {
+	Status  *status
+	Mods    keySlice
+	Carpets keySlice
 }
 
 func (m *model) serveTemplate(w http.ResponseWriter, r *http.Request) {
 	// Load templates and serve.
-	m.t.Execute(w, m.s)
+	m.tmpl.Execute(w, m.display)
 }
 
 func (m *model) updater(addr string, delay time.Duration) {
@@ -25,7 +31,7 @@ func (m *model) updater(addr string, delay time.Duration) {
 		if err != nil {
 			log.Printf("failed to ping minecraft server: %v\n", err)
 		} else {
-			m.s = s
+			m.display.Status = s
 		}
 	}
 }
@@ -48,16 +54,24 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to initially ping minecraft server: %v\n", err)
 	}
-	m.s = s
+	m.display.Status = s
 
 	// Update status every 5 minutes.
 	go m.updater(c.MCAddress, 5*time.Minute)
 
-	t, err := template.ParseFiles(c.Template)
+	// Parse mod and carpet lists.
+	m.display.Mods, err = parseKeyFile(c.ModList)
+	m.display.Carpets, err = parseKeyFile(c.CarpetList)
+	if err != nil {
+		log.Fatalf("failed parsing list: %v\n", err)
+	}
+
+	// Parse template and store in model.
+	tmpl, err := template.ParseFiles(c.Template)
 	if err != nil {
 		log.Fatalf("failed to load and parse template: %v\n", err)
 	}
-	m.t = t
+	m.tmpl = tmpl
 
 	// Serve or crash.
 	http.HandleFunc("/", m.serveTemplate)

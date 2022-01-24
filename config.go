@@ -5,9 +5,11 @@ import (
 )
 
 type config struct {
-	Address   string
-	Template  string
-	MCAddress string
+	Address    string
+	Template   string
+	MCAddress  string
+	ModList    string
+	CarpetList string
 }
 
 func (c *config) Load(p string) error {
