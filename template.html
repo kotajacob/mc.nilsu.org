@@ -102,7 +102,11 @@
       <h2>Mods</h2>
       {{range .Mods}}
       <div class="entries">
+        {{if .URL}}
         <span class="key"><a href="{{.URL}}">{{.Key}}</a></span><span class="value">{{.Value}}</span>
+        {{else}}
+        <span class="key">{{.Key}}</span><span class="value">{{.Value}}</span>
+        {{end}}
       </div>
       {{end}}
       <h2>Carpet Rules</h2>
