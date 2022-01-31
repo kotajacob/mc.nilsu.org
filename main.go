@@ -21,7 +21,9 @@ type display struct {
 
 func (m *model) serveTemplate(w http.ResponseWriter, r *http.Request) {
 	// Load templates and serve.
-	m.tmpl.Execute(w, m.display)
+	if err := m.tmpl.Execute(w, m.display); err != nil {
+		log.Println(err)
+	}
 }
 
 func (m *model) updater(addr string, delay time.Duration) {
