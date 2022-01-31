@@ -1,24 +1,25 @@
-AppleSkin;mc1.18-2.2.0
-Axes Are Weapons;1.5.1
-Better Chainmail;0.1.0
-Better Nether Map;1.6.0-1.18
-BFAPI;1.2.1
-Carpet Extra;1.4.56
-Carpet Mod;1.4.57
-Carpet TIS Addition;1.28.3
-Carpet-AutoCraftingTable;1.4.56
-Cloth Config v6;6.1.48
-Fabric API;0.46.1+1.18
-FabricSit;1.7.1
-FallingTree;2.16.1
-Firework Frenzy;1.7
-I Am Very Smart;2.1.0
-Inventory Sorter;1.8.4-1.18
-LazyDFU;0.1.2
-Lithium;0.7.7
-Servux;0.1.0
-SnowballKnockback;1.1-1.18.1
-Snowy Trees;1.0.0
-Starlight;1.0.0+fabric.d0a3220
-Syncmatica;0.2.6
-Textile Backup;2.3.0-1.18
+AppleSkin;mc1.18-2.2.0;https://minecraft.curseforge.com/projects/appleskin
+Axes Are Weapons;1.5.1;https://www.curseforge.com/minecraft/mc-mods/axes-are-weapons
+Better Chainmail;0.1.0;https://git.sr.ht/~kota/betterchainmail
+Better Horses;1.0.0;https://git.sr.ht/~kota/betterhorses
+Better Nether Map;1.6.0-1.18;https://modrinth.com/mod/better-nether-map
+BFAPI;1.2.1;https://github.com/BradBot1
+Carpet Extra;1.4.56;https://github.com/gnembon/carpet-extra
+Carpet Mod;1.4.57;https://github.com/gnembon/fabric-carpet
+Carpet TIS Addition;1.28.3;https://www.curseforge.com/minecraft/mc-mods/carpet-tis-addition
+Carpet-AutoCraftingTable;1.4.56;https://github.com/gnembon/carpet-autoCraftingTable
+Cloth Config v6;6.1.48;https://minecraft.curseforge.com/projects/cloth-config
+Fabric API;0.46.1+1.18;https://fabricmc.net
+FabricSit;1.7.1;https://github.com/BradBot1/FabricSit
+FallingTree;2.16.1;https://www.curseforge.com/minecraft/mc-mods/falling-tree
+Firework Frenzy;1.7;
+I Am Very Smart;2.1.0;https://minecraft.curseforge.com/projects/i-am-very-smart
+Inventory Sorter;1.8.4-1.18;https://www.curseforge.com/minecraft/mc-mods/inventory-sorting
+Krypton;0.1.6;
+LazyDFU;0.1.2;
+Lithium;0.7.7;https://jellysquid.me/projects/
+SnowballKnockback;1.1-1.18.1;
+Snowy Trees;1.0.0;https://git.sr.ht/~kota/snowy-trees
+Starlight;1.0.0+fabric.d0a3220;https://www.curseforge.com/minecraft/mc-mods/starlight
+Syncmatica;0.2.6;https://github.com/endtech/syncmatica
+Textile Backup;2.3.0-1.18;https://www.curseforge.com/minecraft/mc-mods/textile-backup
