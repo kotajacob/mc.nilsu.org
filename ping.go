@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"time"
 
 	"github.com/Tnze/go-mc/bot"
 	"github.com/Tnze/go-mc/chat"
@@ -25,9 +26,11 @@ type status struct {
 	}
 }
 
+// ping a minecraft server for up to 5 seconds to populate a status variable. If
+// the ping fails or cannot be parsed an error is returned.
 func ping(addr string) (*status, error) {
 	var s status
-	resp, _, err := bot.PingAndList(addr)
+	resp, _, err := bot.PingAndListTimeout(addr, time.Second*5)
 	if err != nil {
 		return &s, fmt.Errorf("ping failed: %v\n", err)
 	}

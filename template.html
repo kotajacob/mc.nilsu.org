@@ -68,6 +68,9 @@
       color: #76657f;
     }
   }
+  .color-offline {
+    color: #e65737;
+  }
 
   a {
     color: #eee;
@@ -90,8 +93,12 @@
   <div class=content>
     <h1 class=site-title><a href= />Nilsu Minecraft Server</a></h1>
     <div class=details>
+      {{if .Offline}}
+      <div><span class=color-offline>OFFLINE</span></div>
+      {{else}}
       <div><span class=color>Version:</span> {{.Status.Version.Name}}</div>
       <div><span class=color>Players:</span>&nbsp&nbsp {{.Status.Players.Online}}/{{.Status.Players.Max}}</span></div>
+      {{end}}
       <h2>Mods</h2>
       {{range .Mods}}
       <div class="entries">

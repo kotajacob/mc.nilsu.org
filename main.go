@@ -15,6 +15,7 @@ type model struct {
 
 type display struct {
 	Status  *status
+	Offline bool
 	Mods    keySlice
 	Carpets keySlice
 }
@@ -32,8 +33,10 @@ func (m *model) updater(addr string, delay time.Duration) {
 		s, err := ping(addr)
 		if err != nil {
 			log.Printf("failed to ping minecraft server: %v\n", err)
+			m.display.Offline = true
 		} else {
 			m.display.Status = s
+			m.display.Offline = false
 		}
 	}
 }
@@ -57,6 +60,7 @@ func main() {
 		log.Fatalf("failed to initially ping minecraft server: %v\n", err)
 	}
 	m.display.Status = s
+	m.display.Offline = false
 
 	// Update status every 5 minutes.
 	go m.updater(c.MCAddress, 5*time.Minute)
