@@ -30,7 +30,7 @@ type status struct {
 // the ping fails or cannot be parsed an error is returned.
 func ping(addr string) (*status, error) {
 	var s status
-	resp, _, err := bot.PingAndListTimeout(addr, time.Second*5)
+	resp, _, err := bot.PingAndListTimeout(addr, time.Second*10)
 	if err != nil {
 		return &s, fmt.Errorf("ping failed: %v\n", err)
 	}
