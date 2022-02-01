@@ -27,27 +27,30 @@ func (m *model) serveTemplate(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func (m *model) update(c config) {
+	s, err := ping(c.MCAddress)
+	if err != nil {
+		log.Printf("failed to ping minecraft server: %v\n", err)
+		m.display.Offline = true
+	} else {
+		m.display.Status = s
+		m.display.Offline = false
+	}
+
+	m.display.Mods, err = parseKeyFile(c.ModList)
+	if err != nil {
+		log.Fatalf("failed parsing mod list: %v\n", err)
+	}
+	m.display.Carpets, err = parseKeyFile(c.CarpetList)
+	if err != nil {
+		log.Fatalf("failed parsing carpet list: %v\n", err)
+	}
+}
+
 func (m *model) updater(c config, delay time.Duration) {
 	for {
 		time.Sleep(delay)
-
-		s, err := ping(c.MCAddress)
-		if err != nil {
-			log.Printf("failed to ping minecraft server: %v\n", err)
-			m.display.Offline = true
-		} else {
-			m.display.Status = s
-			m.display.Offline = false
-		}
-
-		m.display.Mods, err = parseKeyFile(c.ModList)
-		if err != nil {
-			log.Fatalf("failed parsing mod list: %v\n", err)
-		}
-		m.display.Carpets, err = parseKeyFile(c.CarpetList)
-		if err != nil {
-			log.Fatalf("failed parsing carpet list: %v\n", err)
-		}
+		m.update(c)
 	}
 }
 
@@ -65,25 +68,10 @@ func main() {
 
 	// Create and setup model.
 	var m model
-	s, err := ping(c.MCAddress)
-	if err != nil {
-		log.Fatalf("failed to initially ping minecraft server: %v\n", err)
-	}
-	m.display.Status = s
-	m.display.Offline = false
+	m.update(c)
 
-	// Update status every 5 minutes.
-	go m.updater(c, 1*time.Minute)
-
-	// Parse mod and carpet lists.
-	m.display.Mods, err = parseKeyFile(c.ModList)
-	if err != nil {
-		log.Fatalf("failed parsing mod list: %v\n", err)
-	}
-	m.display.Carpets, err = parseKeyFile(c.CarpetList)
-	if err != nil {
-		log.Fatalf("failed parsing carpet list: %v\n", err)
-	}
+	// Update model every 5 minutes.
+	go m.updater(c, 5*time.Minute)
 
 	// Parse template and store in model.
 	tmpl, err := template.ParseFiles(c.Template)
