@@ -28,6 +28,7 @@ func (m *model) serveTemplate(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *model) update(c config) {
+	// Ping the minecraft server to get a player count and version.
 	s, err := ping(c.MCAddress)
 	if err != nil {
 		log.Printf("failed to ping minecraft server: %v\n", err)
@@ -37,13 +38,15 @@ func (m *model) update(c config) {
 		m.display.Offline = false
 	}
 
+	// Get the mod and carpet rule lists.
 	m.display.Mods, err = parseKeyFile(c.ModList)
 	if err != nil {
-		log.Fatalf("failed parsing mod list: %v\n", err)
+		log.Printf("failed parsing mod list: %v\n", err)
 	}
 	m.display.Carpets, err = parseKeyFile(c.CarpetList)
 	if err != nil {
-		log.Fatalf("failed parsing carpet list: %v\n", err)
+		log.Printf("failed parsing carpet list: %v\n", err)
+	}
 	}
 }
 
