@@ -99,6 +99,11 @@
       <div><span class=color>Version:</span> {{.Status.Version.Name}}</div>
       <div><span class=color>Players:</span>&nbsp&nbsp {{.Status.Players.Online}}/{{.Status.Players.Max}}</span></div>
       {{end}}
+      <h2>Worlds</h2>
+      <div class="entries">
+        <span><a href="worlds/latest.tar.gz">latest</a></span><br>
+        <span><a href="worlds/16_vanilla.tar.gz">1.16 vanilla</a></span>
+      </div>
       <h2>Mods</h2>
       {{range .Mods}}
       <div class="entries">
